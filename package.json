@@ -1,0 +1,13 @@
+{
+  "name": "mardam",
+  "version": "0.0.1",
+  "description": "Mardam Application",
+  "main": "index.js",
+  "author": "Poriyaalar Private Limited",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}

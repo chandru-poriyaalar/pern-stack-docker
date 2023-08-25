@@ -1,0 +1,12 @@
+[2023-08-24 01:17:16.317 PM] [31merror[39m: 	[31muncaughtException: tokens.user is not a function[39m
+[31mTypeError: tokens.user is not a function[39m
+[31m    at eval (eval at compile (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/morgan/index.js:411:10), <anonymous>:11:20)[39m
+[31m    at Array.logRequest (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/morgan/index.js:122:18)[39m
+[31m    at listener (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/on-finished/index.js:170:15)[39m
+[31m    at onFinish (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/on-finished/index.js:101:5)[39m
+[31m    at callback (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/ee-first/index.js:55:10)[39m
+[31m    at ServerResponse.onevent (/Users/chan/workspace/waste-manage/source-code/mardam/node_modules/ee-first/index.js:93:5)[39m
+[31m    at ServerResponse.emit (node:events:549:35)[39m
+[31m    at onFinish (node:_http_outgoing:909:10)[39m
+[31m    at callback (node:internal/streams/writable:555:21)[39m
+[31m    at afterWrite (node:internal/streams/writable:500:5)[39m

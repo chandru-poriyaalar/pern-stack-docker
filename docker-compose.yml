@@ -1,0 +1,50 @@
+version: "3"
+services:
+  nginx:
+    restart: always
+    image: nginx:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - ui
+      - api
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "mardam"
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+  _build:
+    image: mardam-image
+    command: ["echo", "build completed"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+  ui:
+    image: mardam-image
+    depends_on:
+      - _build
+    container_name: mardam-ui
+    entrypoint: ["yarn", "workspace", "client", "start"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+  api:
+    image: mardam-image
+    depends_on:
+      - _build
+    container_name: mardam-api
+    entrypoint: ["yarn", "workspace", "server", "dev"]
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules

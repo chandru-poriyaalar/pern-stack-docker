@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "/Users/chan/workspace/waste-manage/source-code/mardam/server/src/modules/logs/.bfdee055735896adc8f2afd0c81a366327f338c3-audit.json",
+    "files": [
+        {
+            "date": 1692863193544,
+            "name": "/Users/chan/workspace/waste-manage/source-code/mardam/server/src/modules/logs/Poriyaalar_2023-08-24.log",
+            "hash": "8c4012a9c1acba2e581855d4c3dc8dbdc269909749493d3c3ef0c7df53d04b57"
+        }
+    ],
+    "hashType": "sha256"
+}
