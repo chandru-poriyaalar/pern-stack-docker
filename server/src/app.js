@@ -15,7 +15,7 @@ const LOGGER = require("./modules/logger")("app");
 const app = new Koa();
 app.use(logger());
 // HTTP Requests Logger
-// app.use(logStreamMiddleware());
+app.use(logStreamMiddleware());
 app.use(errorHandler);
 app.use(cors());
 

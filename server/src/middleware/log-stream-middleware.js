@@ -19,7 +19,7 @@ const fileNameGenerator = () => {
 const requestLogStream = rfs.createStream(fileNameGenerator, {
   interval: "1d",
   compress: true,
-  path: "/var/logs/requests/",
+  path: "/var/log/requests/",
   maxFiles: 7,
 });
 
