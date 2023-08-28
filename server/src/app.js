@@ -19,31 +19,30 @@ app.use(logger());
 app.use(errorHandler);
 app.use(cors());
 
-// function initial() {
-//   Role.create({
-//     id: 1,
-//     name: "user",
-//   });
-//   Role.create({
-//     id: 2,
-//     name: "captain",
-//   });
-//   Role.create({
-//     id: 3,
-//     name: "admin",
-//   });
-//   Role.create({
-//     id: 4,
-//     name: "super_admin",
-//   });
-//   Role.create({
-//     id: 5,
-//     name: "agent",
-//   });
-// }
-// db.sequelize.sync({ force: false });
-//  initial();
-
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user",
+  });
+  Role.create({
+    id: 2,
+    name: "captain",
+  });
+  Role.create({
+    id: 3,
+    name: "admin",
+  });
+  Role.create({
+    id: 4,
+    name: "super_admin",
+  });
+  Role.create({
+    id: 5,
+    name: "agent",
+  });
+}
+db.sequelize.sync({ force: false });
+// initial();
 app.use(koaBody());
 routes.createRoute(app);
 

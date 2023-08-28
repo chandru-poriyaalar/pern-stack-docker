@@ -15,11 +15,10 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: "mardam"
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
   _build:
     image: mardam-image
     command: ["echo", "build completed"]
@@ -42,6 +41,13 @@ services:
     depends_on:
       - _build
     container_name: mardam-api
+    environment:
+      JWT_SECRET: mardam
+      DATABASE_NAME: mardam-dev
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
     entrypoint: ["yarn", "workspace", "server", "dev"]
     ports:
       - "8080:8080"

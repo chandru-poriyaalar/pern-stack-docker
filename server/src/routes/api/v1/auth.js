@@ -10,6 +10,21 @@ const responseHelper = require("../../../helpers/responseHelper");
 const { verifyRefreshtoken } = require("../../../middleware/authenticated");
 const router = new Router({ prefix: v1.auth });
 const _ = require("lodash");
+const RoleController = require("../../../controllers/RoleController");
+
+router.get("/get-all-roles", async (ctx, next) => {
+  let response = {};
+  let error = null;
+  let responseCode = HttpStatusCodes.SUCCESS;
+  try {
+    response = await RoleController.getAll();
+  } catch (err) {
+    error = err;
+    responseCode = HttpStatusCodes.BAD_REQUEST;
+  }
+  ctx.body = responseHelper.buildResponse(error, response);
+  ctx.response.status = responseCode;
+});
 
 router.post("/update/role", async (ctx, next) => {
   let response = {};
