@@ -33,6 +33,22 @@ services:
     entrypoint: ["yarn", "workspace", "client", "start"]
     ports:
       - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:8080
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+  ui-super-admin:
+    image: mardam-image
+    depends_on:
+      - _build
+    container_name: mardam-ui-super-admin
+    entrypoint: ["yarn", "workspace", "client1", "start"]
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      REACT_APP_API_URL: http://localhost:8080
     volumes:
       - .:/home/app
       - /home/app/node_modules

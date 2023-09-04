@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// routes
+import Router from './routes';
+// theme
+import ThemeProvider from './theme';
+// components
+import ThemeSettings from './components/settings';
+import ScrollToTop from './components/ScrollToTop';
+import { ProgressBarStyle } from './components/ProgressBar';
+import MotionLazyContainer from './components/animate/MotionLazyContainer';
 
-function App() {
+// ----------------------------------------------------------------------
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MotionLazyContainer>
+      <ThemeProvider>
+        <ThemeSettings>
+          <ProgressBarStyle />
+          <ScrollToTop />
+          <Router />
+        </ThemeSettings>
+      </ThemeProvider>
+    </MotionLazyContainer>
   );
 }
-
-export default App;
